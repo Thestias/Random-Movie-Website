@@ -1,0 +1,15 @@
+body {
+    background: #fcf8f0
+}
+
+/* Navigation Bar Styling */
+
+nav {
+    list-style: none;
+    justify-content: space-evenly;
+    display: flex;
+    border-radius: 12px;
+    background: #fff4e3;
+    box-shadow: 0px 0px 8px #000000;
+    padding: 6px;
+}

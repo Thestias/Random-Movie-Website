@@ -1,0 +1,36 @@
+/* Posters Styling */
+
+.posters {
+    margin-left: 50px;
+    padding: 2px;
+    box-shadow: 0px 0px 15px black;
+    border-radius: 15px 50px 13px;
+    background-size: 100%;
+    margin-bottom: 20px;
+}
+
+.posters:hover {
+    transition: transform .3s ease;
+    transform: scale(1.02);
+}
+.container {
+    background: #fff4e3;
+    height: auto;
+    width: auto;
+    box-shadow: 0px 0px 15px #000000;
+    border-radius: 15px;
+    padding-bottom: 15px;
+
+}
+
+
+/* Title/Username Styling */
+
+.username_title {
+    text-align: center;
+    border-bottom: black;
+    border-style: none none solid none;
+    border-width: 4px;
+    border-height: 10px;
+}
+

@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="{% static 'images/favicon/favicon.svg' %}">
+    {% if title %}
+      <title>{{title}}</title>
+    {% else %}
+      <title>Random Website</title>
+    {% endif %}
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    {% block new_css %}{% endblock %}
+  </head>
+  <body>
+    <nav>
+          <li><a href="{% url 'homepage' %}"><img src="{% static 'images/navbar/home.svg' %}"></a></li>
+          {% if user.is_authenticated %}
+            <li><a href="{% url 'profile' %}"><img src="{% static 'images/navbar/user-square.svg' %}"></a></li>
+            <li><a href="{% url 'logout' %}"><img src="{% static 'images/navbar/user-minus.svg' %}"></a></li>
+          {% else %}
+            <li><a href="{% url 'login' %}"><img src="{% static 'images/navbar/user.svg' %}"></a></li>
+            <li><a href="{% url 'register' %}"><img src="{% static 'images/navbar/user-plus.svg' %}"></a></li>
+          {% endif %}
+          <li><a href="{% url 'about' %}"><img src="{% static 'images/navbar/help.svg' %}"></a></li>
+    </nav>
+    {% block content_1 %}{% endblock %}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  </body>
+</html>

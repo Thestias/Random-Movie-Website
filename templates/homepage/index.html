@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block new_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/homepage/homepage.css' %}">
+{% endblock %}
+{% block content_1 %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <b><li{% if message.tags %} class="messages-{{ message.tags }}"{% endif %}>{{ message }}</li></b>
+    {% endfor %}
+</ul>
+{% endif %}
+    <div class="container">
+        <img class='poster' src='{{ poster_path }}' alt="Movie-Poster">
+        <div class="syno">
+            {% if user.is_authenticated %}
+                {% if imbd_id in favorited_movies %}
+                    <td>
+                        <form method='POST' action=""><!-- /id={{imbd_id}}/ -->
+                            {% csrf_token %}
+                            {{form}}
+                            <button type="submit" name='imbd_id' value="no-{{imbd_id}}">
+                                <img class='star-image' src="{% static 'images/homepage/star-f.svg' %}">
+                            </button>
+                        </form>
+                    </td>
+                {% elif imbd_id not in favorited_movies %}
+                    <td>
+                        <form method='POST' action=""><!-- /id={{imbd_id}}/ -->
+                            {% csrf_token %}
+                            {{form}}
+                            <button type="submit" name='imbd_id' value="{{imbd_id}}">
+                                <img class='star-image' src="{% static 'images/navbar/star.svg' %}">
+                            </button>
+                        </form>
+                    </td>
+                {% endif %}
+            {% endif %}
+            <h1 class='movieTitle'>{{movie_title}}</h1>
+                <p class='overview'>{{overview}}</p>
+            {% if tagline %}
+                {% if tagline_big %}
+                    <q class="tagline-big">{{tagline}}</q>
+                {% else %}
+                    <q class="tagline-small">{{tagline}}</q>
+                {% endif %}
+            {% endif %}
+            <p class='details'>
+                Movie Title: {{movie_title}}<br>
+                Genre: {{genero}}<br>
+                Release Date: {{release_date}}<br>
+                Runtime: {{runtime}}<br>
+                Vote Average: {{vote_average}}<br>
+                Budget: {{budget}} - Revenue: {{revenue}}<br>
+                {% if imbd_id %}
+                <a href="https://www.imdb.com/title/{{imbd_id}}/">IMBD Link</a> / {{imbd_id}}
+                {% endif %}
+            </p>
+        </div>
+    </div>
+<script src="https://code.iconify.design/1/1.0.4/iconify.min.js"></script>
+ {% endblock %}
