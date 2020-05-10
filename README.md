@@ -7,6 +7,15 @@ The homepage of this website shows a random movie and it's data, it also allows 
 
 Nothing for now.
 
+## Screenshots
+
+### Homepage
+![Image of Site](https://i.imgur.com/6WSFDdd.png)
+
+### Profile
+
+![Image of Site](https://i.imgur.com/pzIyyaF.png)
+
 
 ## Build With
 
