@@ -8,7 +8,7 @@
         <h1 class="username_title">{{user.username}} Favorite Movies!</h1>
         {% if lista_movies %}
             {% for a in lista_movies %}
-                    <a href="http://localhost:8000/id={{a.imbd_id}}"><img alt='{{a.movie_title}}' class='posters' src={{a.poster_path}} style="width: 25%; height: 40%;"></a>
+                    <a href="http://localhost:8000/id={{a.imbd_id}}"><img alt='{{a.movie_title}}' class='posters' src={{a.poster_path}} style="width: 25%; height: 40%"></a>
             {% endfor %}
         {% else %}
             <h2 style="text-align: center;">You dont have favorited movies! :(</h2>

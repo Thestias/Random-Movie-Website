@@ -2,8 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 import unittest
 
-WEBSITE_URL =
-WEBDRIVER_PATH =
+WEBSITE_URL = 'http://localhost:8000'
+WEBDRIVER_PATH = 'geckodriver.exe'
 
 class RandomMovieTest(unittest.TestCase):
 

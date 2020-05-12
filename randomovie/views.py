@@ -11,9 +11,14 @@ def favorited_movies(request):
     imbd_ides = []
     user_saved_movies = UserFavoriteMovies.objects.filter(
         user=request.user).values_list('favorited_movie_id')
+    print(user_saved_movies)
     for imbd_id_req in user_saved_movies:
-        lista__favorited_movies.append(movie_details(
-            Movie.objects.get(imbd_id=imbd_id_req[0])))
+        print(imbd_id_req)
+        if imbd_id_req[0] == 'imdb id Not Found':
+            pass
+        else:
+            lista__favorited_movies.append(movie_details(
+                Movie.objects.get(imbd_id=imbd_id_req[0])))
     for i in lista__favorited_movies:
         imbd_ides.append(i.get('imbd_id'))
 
@@ -45,19 +50,20 @@ def about(request):
 def specific_movie(request, imbd_id_req):
     movie_det_specific = Movie.objects.get(imbd_id=imbd_id_req)
     det_movie = movie_details(movie_det_specific)
-    lista_movies_favoritas = favorited_movies(request)
-    det_movie['favorited_movies'] = lista_movies_favoritas
-    if request.method == 'POST':
-        imbd_id_obtaining = dict(request.POST)
-        imbd_id_obtaining = imbd_id_obtaining['imbd_id'][0]
-        if 'no' in imbd_id_obtaining:
-            delete_favorito = UserFavoriteMovies.objects.get(
-                favorited_movie_id=imbd_id_obtaining[3:])
-            delete_favorito.delete()
-            messages.error(request, 'Movie Deleted From Favorites.')
+    if request.user.is_authenticated:
+        lista_movies_favoritas = favorited_movies(request)
+        det_movie['favorited_movies'] = lista_movies_favoritas
+        if request.method == 'POST':
+            imbd_id_obtaining = dict(request.POST)
+            imbd_id_obtaining = imbd_id_obtaining['imbd_id'][0]
+            if 'no' in imbd_id_obtaining:
+                delete_favorito = UserFavoriteMovies.objects.get(
+                    favorited_movie_id=imbd_id_obtaining[3:])
+                delete_favorito.delete()
+                messages.error(request, 'Movie Deleted From Favorites.')
 
-        else:
-            pass
+            else:
+                pass
     return render(request, 'homepage/index.html', context=det_movie)
 
 
