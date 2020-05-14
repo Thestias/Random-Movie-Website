@@ -36,3 +36,10 @@
     border-height: 10px;
 }
 
+
+
+@media screen and (max-width: 768px) {
+    .posters {
+        border-radius: 0px 0px 0px;
+    }
+}

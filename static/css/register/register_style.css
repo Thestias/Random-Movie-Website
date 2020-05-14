@@ -44,39 +44,6 @@
   margin-top: 30px;
 }
 
-/* Form Styling */
-
-/*fieldset {
-  border: 0;
-}
-
-.control-group {
-  margin-top: 20px;
-  margin-left: 40%;
-}
-
-.asteriskField {
-  display: none;
-}
-form {
-  padding: 10px;
-}
-#boton {
-  margin-left: 45.5%;
-  padding: 8px;
-  background: #ede2d1;
-  border-color: black;
-  border-style: solid;
-}
-
-input {
-  height: 25px;
-}
-
-label {
-  margin: 42px;
-}*/
-
 fieldset {
   border: 0;
 }
@@ -109,6 +76,13 @@ input {
 @media screen and (max-width: 768px) {
   .content-section {
     transform: translate(-0%, -40%);
+  }
+  .form-group {
+    padding: 10px;
+    margin-left: 9%;
+  }
+  #boton {
+    margin-left: 40%;
   }
 }
 

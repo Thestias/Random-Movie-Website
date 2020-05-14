@@ -65,10 +65,10 @@ fieldset {
   border: 0;
 }
 
-.form-group {
+/*.form-group {
   padding: 5px;
   margin-left: 41.5%;
-}
+}*/
 
 .asteriskField {
   display: none;
@@ -95,8 +95,16 @@ label {
 
 /* Phone Screen Styling */
 @media screen and (max-width: 768px) {
-  .content-section {
+/*  .content-section {
     transform: translate(-0%, -40%);
+  }*/
+  form {
+    margin-right: auto;
+    margin-left: 18%;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 40px;
+    width: 50%;
   }
 }
 
