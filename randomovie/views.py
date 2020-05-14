@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Movie, UserFavoriteMovies
 import random
 from django.contrib import messages
@@ -26,8 +26,8 @@ def favorited_movies(request):
 
 
 def homepage(request):
-    rand_movie_id = random.randint(2, 599)
-    movie_det_homepage = Movie.objects.get(id=rand_movie_id)
+    rand_movie_id = random.randint(2, 586)
+    movie_det_homepage = get_object_or_404(Movie, id=rand_movie_id)
     homepage_context = movie_details(movie_det_homepage)
     if request.user.is_authenticated:
         if request.method == 'POST':
