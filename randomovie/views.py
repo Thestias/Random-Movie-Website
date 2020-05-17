@@ -11,7 +11,6 @@ def favorited_movies(request):
     imbd_ides = []
     user_saved_movies = UserFavoriteMovies.objects.filter(
         user=request.user).values_list('favorited_movie_id')
-    print(user_saved_movies)
     for imbd_id_req in user_saved_movies:
         print(imbd_id_req)
         if imbd_id_req[0] == 'imdb id Not Found':
@@ -26,7 +25,8 @@ def favorited_movies(request):
 
 
 def homepage(request):
-    rand_movie_id = random.randint(2, 586)
+    ammount_items = Movie.objects.count()
+    rand_movie_id = random.randint(1, ammount_items)
     movie_det_homepage = get_object_or_404(Movie, id=rand_movie_id)
     homepage_context = movie_details(movie_det_homepage)
     if request.user.is_authenticated:

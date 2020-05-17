@@ -19,7 +19,7 @@ class Movie(models.Model):
     tagline = models.CharField(max_length=500)
 
     def __str__(self):
-        return self.movie_title
+        return f'{self.movie_id} {self.imbd_id} {self.movie_title} {self.genero} {self.original_language} {self.overview} {self.poster_path} {self.release_date} {self.budget} {self.revenue} {self.runtime} {self.vote_average} {self.tagline}'
 
 
 class UserFavoriteMovies(models.Model):
