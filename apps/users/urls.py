@@ -1,5 +1,4 @@
 """random_movie_project URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
 Examples:
@@ -13,13 +12,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.contrib.auth import views as auth_views
 from django.urls import path
-from randomovie import views as random_movie_views
+from apps.users import views as users_views
+
 
 urlpatterns = [
-    path('', random_movie_views.homepage, name='homepage'),
-    path('about/', random_movie_views.about, name='about'),
-    # Always at the end.
-    path('id=<str:imbd_id_req>/',
-         random_movie_views.specific_movie, name='specify_movie'),
+    path('login/', auth_views.LoginView.as_view(template_name='login/login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='logout/logout.html'), name='logout'),
+    path('register/', users_views.register, name='register'),
+    path('profile/', users_views.profile, name='profile'),
 ]

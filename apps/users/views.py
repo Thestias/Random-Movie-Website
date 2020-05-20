@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from .forms import RegisterForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from randomovie.models import UserFavoriteMovies, Movie
-from randomovie.views import movie_details
+from apps.randomovie.models import UserFavoriteMovies, Movie
+from apps.randomovie.views import movie_details
 # Create your views here.
 
 

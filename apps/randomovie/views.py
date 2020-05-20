@@ -12,7 +12,6 @@ def favorited_movies(request):
     user_saved_movies = UserFavoriteMovies.objects.filter(
         user=request.user).values_list('favorited_movie_id')
     for imbd_id_req in user_saved_movies:
-        print(imbd_id_req)
         if imbd_id_req[0] == 'imdb id Not Found':
             pass
         else:
@@ -61,9 +60,11 @@ def specific_movie(request, imbd_id_req):
                     favorited_movie_id=imbd_id_obtaining[3:])
                 delete_favorito.delete()
                 messages.error(request, 'Movie Deleted From Favorites.')
-
             else:
-                pass
+                form = UserFavoriteMovies(
+                    favorited_movie_id=imbd_id_obtaining, user=request.user)
+                form.save()
+                messages.success(request, f'Movie added to your favorites!')
     return render(request, 'homepage/index.html', context=det_movie)
 
 

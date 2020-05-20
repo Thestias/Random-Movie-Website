@@ -29,11 +29,13 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+MY_APPS = [
+    'apps.users.apps.UsersConfig',
+    'apps.randomovie.apps.RandomovieConfig',
+    'crispy_forms'
+]
 
-INSTALLED_APPS = [
-    'users.apps.UsersConfig',
-    'randomovie.apps.RandomovieConfig',
-    'crispy_forms',
+PREINSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+INSTALLED_APPS = MY_APPS + PREINSTALLED_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
