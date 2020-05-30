@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Movie, UserFavoriteMovies
+from apps.randomovie.models import Movie, UserFavoriteMovies
 import random
 from django.contrib import messages
 
