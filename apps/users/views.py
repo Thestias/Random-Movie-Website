@@ -20,7 +20,7 @@ def register(request):
     else:
         register_form = RegisterForm()  # Crea un form vacio
 
-    return render(request, 'register/register.html', context={'register_form': register_form})
+    return render(request, 'users/register.html', context={'register_form': register_form})
 
 
 @login_required
@@ -32,4 +32,4 @@ def profile(request):
         for imbd_id_req in user_saved_movies:
             lista_movies.append(movie_details(
                 Movie.objects.get(imbd_id=imbd_id_req[0])))
-        return render(request, 'profile/profile.html', context={'lista_movies': lista_movies})
+        return render(request, 'users/profile.html', context={'lista_movies': lista_movies})
