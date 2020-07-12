@@ -26,6 +26,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # Application definition
 MY_APPS = [
+    'whitenoise.runserver_nostatic',  # This will overwrite the default Django way of serving static files.
     'apps.users.apps.UsersConfig',
     'apps.randomovie.apps.RandomovieConfig',
     'crispy_forms'
@@ -44,6 +45,7 @@ INSTALLED_APPS = MY_APPS + PREINSTALLED_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Conra Installed Middleware
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -122,6 +124,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
