@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.randomovie.urls')),
     path('', include('apps.users.urls')),
-    path('api/', include('apps.api.urls')),
+    path('api/v1/', include('apps.api.urls')),
 ]
