@@ -18,5 +18,8 @@ from apps.api import views as api_views
 
 urlpatterns = [
     path('id=<str:movie_id>/',
-         api_views.movie_api_view, name='api_spe_mov'),
+         api_views.api_get_movie, name='api_spe_mov'),
+    path('create', api_views.api_create_movie, name='api_create_movie'),
+    path('delete/id=<str:imbd_id_req>', api_views.api_delete_movie, name='api_delete_movie'),
+    path('update/id=<str:imbd_id_req>', api_views.api_update_movie, name='api_update_movie')
 ]
