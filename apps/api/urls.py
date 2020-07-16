@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.urls import path
 from apps.api import views as api_views
-
+from apps.api.views import movie_api
 urlpatterns = [
-    path('id=<str:movie_id>/',
-         api_views.api_get_movie, name='api_spe_mov'),
-    path('create', api_views.api_create_movie, name='api_create_movie'),
-    path('delete/id=<str:imbd_id_req>', api_views.api_delete_movie, name='api_delete_movie'),
-    path('update/id=<str:imbd_id_req>', api_views.api_update_movie, name='api_update_movie')
+    path('id=<str:movie_imbd_id>/',
+         movie_api.as_view(), name='api_spe_mov'),
+    # path('create', api_views.api_create_movie, name='api_create_movie'),
+    # path('delete/id=<str:imbd_id_req>', api_views.api_delete_movie, name='api_delete_movie'),
+    # path('update/id=<str:imbd_id_req>', api_views.api_update_movie, name='api_update_movie')
 ]
