@@ -29,7 +29,9 @@ MY_APPS = [
     'whitenoise.runserver_nostatic',  # This will overwrite the default Django way of serving static files.
     'apps.users.apps.UsersConfig',
     'apps.randomovie.apps.RandomovieConfig',
-    'crispy_forms'
+    'apps.api.apps.ApiConfig',
+    'rest_framework',
+    'crispy_forms',
 ]
 
 PREINSTALLED_APPS = [
