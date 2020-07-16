@@ -1,6 +1,7 @@
 asgiref==3.2.7
 Django==3.0.6
 django-crispy-forms==1.9.1
+djangorestframework==3.11.0
 gunicorn==20.0.4
 python-dotenv==0.14.0
 pytz==2020.1
