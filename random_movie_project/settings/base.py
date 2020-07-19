@@ -14,7 +14,8 @@ import os
 from dotenv import load_dotenv, find_dotenv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.dirname(os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__))))
 
 dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
 load_dotenv(dotenv_path)
@@ -26,12 +27,14 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # Application definition
 MY_APPS = [
-    'whitenoise.runserver_nostatic',  # This will overwrite the default Django way of serving static files.
+    # This will overwrite the default Django way of serving static files.
+    'whitenoise.runserver_nostatic',
     'apps.users.apps.UsersConfig',
     'apps.randomovie.apps.RandomovieConfig',
     'apps.api.apps.ApiConfig',
     'rest_framework',
     'crispy_forms',
+    'rest_framework.authtoken',
 ]
 
 PREINSTALLED_APPS = [
@@ -142,4 +145,14 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD') 
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
+
+# DJANGO REST FRAMEWORK CONFIGURATION!
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 15
+}

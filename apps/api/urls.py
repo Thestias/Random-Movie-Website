@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.urls import path
 from apps.api import views as api_views
-from apps.api.views import movie_api
+from apps.api.views import movie_api, MoviesList
+from rest_framework.authtoken import views as django_rest_views
+
 urlpatterns = [
-    path('id=<str:movie_imbd_id>/', movie_api.as_view(), name='api_spe_mov'),
+    path('movies/', MoviesList.as_view(), name='movies_list_api'),
+    path('movies/<str:movie_imbd_id>/', movie_api.as_view(), name='api_spe_mov'),
+    path('token/api-token-auth/',
+         django_rest_views.obtain_auth_token, name='token_generating')
 ]
