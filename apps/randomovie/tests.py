@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.urls import resolve, reverse
 from apps.randomovie.views import homepage, about, specific_movie
 from utils.create_model_objects_for_test import obj_movie_mod_create
+from apps.randomovie.models import Movie
 # Create your tests here.
 
 
@@ -46,3 +47,16 @@ class PageStatusOkTest(TestCase):
         url = reverse('specify_movie', args=['tt3783958'])
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
+
+
+class MovieModelTest(TestCase):
+    ''' 
+        This class tests the str method in the model Movie
+    '''
+
+    def setUp(self):
+        obj_movie_mod_create()
+
+    def test_model_str(self):
+        movie_one = Movie.objects.get(id=1)
+        self.assertEqual(str(movie_one), '1 tt0478970 Ant-Man')
