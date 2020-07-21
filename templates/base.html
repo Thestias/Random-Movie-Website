@@ -16,15 +16,15 @@
   </head>
   <body>
     <nav>
-          <li><a href="{% url 'homepage' %}"><img src="{% static 'images/navbar/home.svg' %}"></a></li>
+          <li><a id='homepage' href="{% url 'homepage' %}"><img src="{% static 'images/navbar/home.svg' %}"></a></li>
           {% if user.is_authenticated %}
-            <li><a href="{% url 'profile' %}"><img src="{% static 'images/navbar/user-square.svg' %}"></a></li>
-            <li><a href="{% url 'logout' %}"><img src="{% static 'images/navbar/user-minus.svg' %}"></a></li>
+            <li><a id='profile' href="{% url 'profile' %}"><img src="{% static 'images/navbar/user-square.svg' %}"></a></li>
+            <li><a id='logout' href="{% url 'logout' %}"><img src="{% static 'images/navbar/user-minus.svg' %}"></a></li>
           {% else %}
-            <li><a href="{% url 'login' %}"><img src="{% static 'images/navbar/user.svg' %}"></a></li>
-            <li><a href="{% url 'register' %}"><img src="{% static 'images/navbar/user-plus.svg' %}"></a></li>
+            <li><a id='login' href="{% url 'login' %}"><img src="{% static 'images/navbar/user.svg' %}"></a></li>
+            <li><a id='register' href="{% url 'register' %}"><img src="{% static 'images/navbar/user-plus.svg' %}"></a></li>
           {% endif %}
-          <li><a href="{% url 'about' %}"><img src="{% static 'images/navbar/help.svg' %}"></a></li>
+          <li><a id='about' href="{% url 'about' %}"><img src="{% static 'images/navbar/help.svg' %}"></a></li>
     </nav>
     {% block content_1 %}{% endblock %}
     <!-- Optional JavaScript -->
