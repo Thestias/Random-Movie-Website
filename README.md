@@ -18,7 +18,7 @@ Everytime this website its reloaded it will show you a random movie and it's det
 
 + First you will need Python 3.6 or higher.
 + Then you need to install the packages found in requeriments.txt
-+ You can download the SQLite database that i used [here](https://mega.nz/file/xNA3nKqT#JNYfgIKTTFW5CFNSH1haO-IIKlaeIMs-lgIbIwAiBt4) it cointains information about 600 movies. If you want to use your own data you can get everything you need from TheMovieDB API.
++ You can download the SQLite database that i used [here](https://mega.nz/file/QAIkhI7K#LpOAutxebTvqPzzhPnmS5NOxYJYIBDSVi5gK7eIB9k0) it cointains information about 600 movies. If you want to use your own data you can get everything you need from TheMovieDB API.
 + After adding the data and making migrations you can run the website.
 
 ## Authors
