@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import RegisterForm
+from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from apps.randomovie.models import UserFavoriteMovies, Movie
@@ -33,3 +34,16 @@ def profile(request):
             lista_movies.append(movie_details(
                 Movie.objects.get(imbd_id=imbd_id_req[0])))
         return render(request, 'users/profile.html', context={'lista_movies': lista_movies})
+
+
+@login_required
+def change_settings(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(user=request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Password Changed Successfully')
+            return redirect('login')
+    else:
+        form = PasswordChangeForm(user=request.user)
+    return render(request, 'users/change_settings.html', context={'form': form})

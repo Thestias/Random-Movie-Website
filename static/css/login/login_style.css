@@ -92,6 +92,9 @@ label {
   padding: 2px;
 }
 
+#hint_id_new_password1 {
+  display: none;
+}
 
 /* Phone Screen Styling */
 @media screen and (max-width: 768px) {

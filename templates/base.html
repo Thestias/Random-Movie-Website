@@ -20,6 +20,7 @@
           {% if user.is_authenticated %}
             <li><a id='profile' href="{% url 'profile' %}"><img src="{% static 'images/navbar/user-square.svg' %}"></a></li>
             <li><a id='logout' href="{% url 'logout' %}"><img src="{% static 'images/navbar/user-minus.svg' %}"></a></li>
+            <li><a id='settings 'href="{% url 'settings' %}"><img src="{% static 'images/navbar/cog.svg' %}"></a></li>
           {% else %}
             <li><a id='login' href="{% url 'login' %}"><img src="{% static 'images/navbar/user.svg' %}"></a></li>
             <li><a id='register' href="{% url 'register' %}"><img src="{% static 'images/navbar/user-plus.svg' %}"></a></li>

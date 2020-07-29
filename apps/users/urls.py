@@ -22,19 +22,24 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     path('register/', users_views.register, name='register'),
     path('profile/', users_views.profile, name='profile'),
+    path('settings/', users_views.change_settings, name='settings'),
 
     # Password reset views
-    
+
     # The view below gives a built-in form that tells the app that the user wants to reset the password
-    path('password-reset/', auth_views.PasswordResetView.as_view(template_name='users/password_reset.html'), name='password_reset'),
-    
+    path('password-reset/', auth_views.PasswordResetView.as_view(
+        template_name='users/password_reset.html'), name='password_reset'),
+
     # The view below its just a page that tells the user to check is inbox for a reset mail
-    path('password-reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='users/password_reset_done.html'), name='password_reset_done'),
+    path('password-reset/done/', auth_views.PasswordResetDoneView.as_view(
+        template_name='users/password_reset_done.html'), name='password_reset_done'),
 
     # This one allows you to change the password with a built-in form.
-    path('password-reset-confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='users/password_reset_confirm.html'), name='password_reset_confirm'),
+    path('password-reset-confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(
+        template_name='users/password_reset_confirm.html'), name='password_reset_confirm'),
 
-    path('password-reset/complete/', auth_views.PasswordResetCompleteView.as_view(template_name='users/password_reset_complete.html'), name='password_reset_complete'),
+    path('password-reset/complete/', auth_views.PasswordResetCompleteView.as_view(
+        template_name='users/password_reset_complete.html'), name='password_reset_complete'),
 
 
 
