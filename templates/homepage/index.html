@@ -11,6 +11,7 @@
     {% endfor %}
 </ul>
 {% endif %}
+<div class="wrapper">
     <div class="container">
         <img class='poster' src='{{ poster_path }}' alt="Movie-Poster">
         <div class="syno">
@@ -42,11 +43,13 @@
             <a href="{% url 'specify_movie' imbd_id_req=imbd_id %}"><h1 class='movieTitle'>{{movie_title}}</h1></a>
                 <p class='overview'>{{overview}}</p>
             {% if tagline %}
-                {% if tagline_big %}
-                    <q class="tagline-big">{{tagline}}</q>
-                {% else %}
-                    <q class="tagline-small">{{tagline}}</q>
-                {% endif %}
+                <div class="tagline">
+                    {% if tagline_big %}
+                        <q class="tagline-big">{{tagline}}</q>
+                    {% else %}
+                        <q class="tagline-small">{{tagline}}</q>
+                    {% endif %}
+                </div>
             {% endif %}
             <p class='details'>
                 Movie Title: {{movie_title}}<br>
@@ -61,5 +64,6 @@
             </p>
         </div>
     </div>
+</div>
 <script src="https://code.iconify.design/1/1.0.4/iconify.min.js"></script>
  {% endblock %}

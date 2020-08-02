@@ -1,0 +1,35 @@
+.container {
+  grid-template-columns: 1fr;
+}
+
+fieldset {
+  border: 0;
+}
+
+.asteriskField {
+  display: none;
+}
+
+#hint_id_password2, #hint_id_username, #hint_id_password1 {
+  display: none;
+}
+
+#boton {
+  padding: 8px;
+  background: #ede2d1;
+  border-color: black;
+  border-style: solid;
+  font-size: 18px;
+  cursor: pointer;
+}
+input {
+  height: 25px;
+  border-radius: 5px;
+  margin: 7px;
+}
+
+@media screen and (max-width: 1200px) {
+       .wrapper {
+         margin-top: 10%;
+      }
+}

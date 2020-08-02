@@ -2,7 +2,7 @@
 {% load static %}
 {% block content_1 %}
 {% block new_css %}
-  <link rel="stylesheet" type="text/css" href="{% static 'css/login/login_style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/login_register/login_register.css' %}">
 {% endblock %}
 {% if messages %}
 <ul class="messages">
@@ -12,15 +12,15 @@
 </ul>
 {% endif %}
 {% load crispy_forms_tags %}
-  <div class='grid'>
-    <div class='content-section'>
+  <div class='wrapper'>
+    <div class='container'>
       <form method="POST">
         {% csrf_token %}
         <fieldset>
             {{ form|crispy }}
         </fieldset>
-          <button class="btn btn-outline-info" type='submit' id='boton'>Login</button><br>
-          <small style="margin-left: 45%;">
+          <button type='submit' id='boton'>Login</button><br>
+          <small>
             <a href="{% url 'password_reset' %}">Forgot password?</a>
           </small>
       </form>

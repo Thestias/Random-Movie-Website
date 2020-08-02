@@ -1,76 +1,3 @@
-/* Favorite Button and Image Style */
-button {
-    float: left;
-    border: none;
-    background: inherit;
-}
-
-
-.star-image {
-    margin-top: 21.5px;
-    width: 140%;
-    height: 140%;
-}
-
-.star_image_black {
-    margin-top: 21.5px;
-    float: left;
-    height: 5%;
-    width: 5%;
-
-}
-
-/* Messages after Registering Styling */
-
-.messages {
-    text-align: center;
-}
-
-li {
-    list-style-type: none;
-}
-
-.messages-success {
-    padding: 15px;
-    border-radius: 15px;
-    background: #4ce575;
-    margin-bottom: -17px;
-}
-
-.messages-error {
-    padding: 15px;
-    border-radius: 15px;
-    background: red;
-    margin-bottom: -17px;
-}
-
-/* This is only the poster, details and title */
-.container {
-    box-shadow: 0px 0px 15px #000000;
-    background: #fff4e3;
-    display: grid;
-    grid-template-columns: 35% | auto;
-    grid-template-rows:  35% | auto;
-    grid-row-gap: 2px;
-    grid-column-gap: 2px;
-    justify-items: stretch;
-    border-radius: 15px;
-    align-items: start;
-    padding-top: 30px;
-    padding-bottom: 15px;
-    padding-left: 15px;
-    transform: translate(0%, 5%);
-}
-
-.syno {
-    background: #fff4e3;
-    grid-column-start: 2;
-    text-align: center;
-    max-height: 90%;
-    padding-left: 15px;
-    margin-top: -21px;
-}
-
 .poster {
     box-shadow: 0px 0px 7px black;
     border-radius: 15px 50px 13px;
@@ -78,13 +5,26 @@ li {
     width: 300px;
 }
 
-.tagline-big, .tagline-small {
+.tagline {
     border-radius: 10px;
     padding: 10px;
     background: #b0b0b0;
 }
 
+.tagline-small {
+    font-size: 20px;
+}
 
+.tagline-big {
+    font-size: 15px;
+}
+.movieTitle {
+    border-bottom: solid;
+}
+a {
+    text-decoration: none;
+    color: #1b262c;
+}
 .overview {
     padding-bottom: 15px;
     padding-right: 15px;
@@ -96,49 +36,44 @@ li {
     font-size: 20px;
 }
 
-.tagline-small {
-    font-size: 20px;
-}
-
-.tagline-big {
-    font-size: 15px;
-}
-
-.movieTitle {
-    border-bottom: solid;
-}
-
-a {
-    text-decoration: none;
-    color: #1b262c;
-}
-
 a:hover {
     color: red;
 }
 
-/* Mobile Styling */
-@media screen and (max-width: 768px) {
+/* Favorite Button and Image Style */
+button {
+    float: left;
+    border: none;
+    background: inherit;
+    cursor: pointer;
+}
+.star-image {
+    margin-top: 21.5px;
+    width: 140%;
+    height: 140%;
+}
+.star_image_black {
+    margin-top: 21.5px;
+    float: left;
+    height: 5%;
+    width: 5%;
+}
+
+@media screen and (max-width: 1200px) {
     .container {
-        display: grid;
-    }
-    .syno {
-        grid-column-start: 1;
-        grid-row-start: 2;
+        grid-template-columns: 1fr;
     }
     .poster {
-        box-shadow: 0px 0px 0px #fff4e3;
-        margin-left: auto;
-        margin-right: auto;
-        grid-column-start: 1;
-        grid-row-start: 1;
+        height: 400px;
+        width: 100%;
     }
-
-    .tagline-small {
-        font-size: 13px;
+    .tagline {
+     border-radius: 10px;
+    padding: 5px;
+    background: #b0b0b0;
     }
-    .details {
-        margin: auto;
+    .overview {
+        font-size: 15px;
+        line-height:  1.6em;
     }
-
 }
