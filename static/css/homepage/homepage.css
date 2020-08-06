@@ -20,6 +20,7 @@
 }
 .movieTitle {
     border-bottom: solid;
+    margin: 0;
 }
 a {
     text-decoration: none;
