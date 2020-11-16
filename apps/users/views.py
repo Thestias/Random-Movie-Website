@@ -10,7 +10,6 @@ from apps.randomovie.views import movie_details
 
 def register(request):
     if request.method == 'POST':
-        # Le envia los datos del POST al FORM para guardar i asume
         register_form = RegisterForm(request.POST)
         if register_form.is_valid():
             register_form.save()
