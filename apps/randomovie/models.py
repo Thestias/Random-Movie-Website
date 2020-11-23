@@ -23,5 +23,5 @@ class Movie(models.Model):
 
 
 class UserFavoriteMovies(models.Model):
-    user = models.ForeignKey(to=User, on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE)
     favorited_movie_id = models.CharField(max_length=200)
