@@ -58,7 +58,7 @@ def specific_movie(request, imbd_id_req):
             imbd_id_obtaining = imbd_id_obtaining['imbd_id'][0]
             if 'no' in imbd_id_obtaining:
                 delete_favorito = UserFavoriteMovies.objects.get(
-                    favorited_movie_id=imbd_id_obtaining[3:])
+                    favorited_movie_id=imbd_id_obtaining[3:], user=request.user)
                 delete_favorito.delete()
                 messages.error(request, 'Movie Deleted From Favorites.')
             else:
