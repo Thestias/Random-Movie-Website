@@ -20,6 +20,6 @@ urlpatterns = [
     path('', random_movie_views.homepage, name='homepage'),
     path('about/', random_movie_views.about, name='about'),
     # Always at the end.
-    path('id=<str:imbd_id_req>/',
+    path('movie/<str:imbd_id_req>/',
          random_movie_views.specific_movie, name='specify_movie'),
 ]
